@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Location of the sitemap file.
+Sitemap: https://priya-raj.web.app/sitemap.xml

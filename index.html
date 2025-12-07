@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Niraj | Portfolio | IITM BS</title>
+    
+   
+    
+    <!-- CDNs: Tailwind, Google Fonts, Font Awesome, Three.js -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&family=Inter:wght@300;400;500;600&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/video.js/8.6.1/video-js.css" rel="stylesheet">
+    
+    <!-- Video.js City Theme CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/videojs-themes/1.0.1/city/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    
+    
+</head>
+<body class="antialiased">
+
+    <!-- WebGL Background -->
+    <canvas id="webgl-canvas" aria-hidden="true"></canvas>
+    <!-- Particle Canvas -->
+    <canvas id="particle-canvas" aria-hidden="true"></canvas>
+
+    <!-- Custom Cursor -->
+    <div class="cursor" id="cursor-ring" aria-hidden="true"></div>
+    <div class="cursor" id="cursor-dot" aria-hidden="true"></div>
+    
+    <!-- Preloader -->
+    <div class="preloader" role="status" aria-live="polite">
+        <div class="preloader-content">
+            <div class="preloader-image-container">
+                <img src="image.jpeg" alt="Niraj Kumar" class="preloader-candidate-image">
+                <div class="preloader-circular-loader" aria-hidden="true"></div>
+            </div>
+            <div id="preloader-animated-tagline" class="preloader-tagline">Loading...</div>
+        </div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="main-nav" id="main-navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="#hero" style="display: flex; align-items: center; text-decoration: none;"> <img src="image.jpeg" 
+             alt="home"
+             style="height: 60px;
+                    width: auto; 
+                    margin-right: 10px; 
+                    
+                   ">
+        <span style="color: var(--text-mid); 
+                     margin-right: 10px; 
+                     font-weight: 400; 
+                    ">|</span>
+        <span><div id="Niraj Kumar"></div></span>
+    </a>
+            </div>
+            <button class="nav-toggle" id="nav-toggle-button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-link-list">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-times"></i>
+            </button>
+            <ul class="nav-links" id="nav-link-list" role="menubar">
+                <li role="none"><a href="#about" role="menuitem">About</a></li>
+                <li role="none"><a href="#projects" role="menuitem">Projects</a></li>
+                <li role="none"><a href="#focus" role="menuitem">Works</a></li>
+                <li role="none"><a href="#experience" role="menuitem">Experience</a></li>
+                <li role="none"><a href="#roadmap" role="menuitem">Education</a></li>
+                <li role="none"><a href="#contact" role="menuitem">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="relative z-10">
+        <!-- Hero Section -->
+        <section id="hero" class="min-h-screen flex flex-col items-center justify-center text-center p-4 relative overflow-hidden" aria-labelledby="hero-heading">
+            <!-- Animated gradient overlay -->
+            <div class="hero-gradient-overlay"></div>
+            
+            <div class="magnetic-wrap mb-6 hero-image-container">
+                 <img src="image.jpeg" alt="Niraj Kumar" class="profile-image rounded-full w-40 h-40 md:w-48 md:h-48 border-4">
+                 <div class="profile-ring"></div>
+            </div>
+            <h1 id="hero-heading" class="hologram-text text-4xl md:text-7xl lg:text-8xl font-black mb-2" data-text="NIRAJ KUMAR">NIRAJ KUMAR</h1>
+            <p class="text-xl md:text-2xl lg:text-3xl text-accent-cyan font-semibold mb-4 hero-subtitle">Data Science Enthusiast | ML Engineer </p>
+
+            <!-- Commitments Slider -->
+            <div class="commitments-slider-container" id="commitments-slider">
+                <div class="slider-icon" aria-hidden="true">
+                    <i class="fas fa-brain text-2xl text-accent-cyan"></i> 
+                </div>
+                <div class="slider-text-wrapper" id="slider-text-wrapper" aria-live="polite">
+                   
+                </div>
+            </div>
+
+            <!-- Scroll indicator -->
+            <div class="scroll-indicator">
+                <div class="scroll-arrow">
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+            </div>
+        </section>
+        
+        <!-- About Me Section -->
+        <section id="about" class="py-20 px-6 scroll-reveal" aria-labelledby="about-heading">
+            <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+                <div class="magnetic-wrap">
+                    <img src="badminton.jpeg" alt="Poster of Niraj Kumar" class="rounded-2xl shadow-lg profile-image border-2 border-border-color w-full max-w-sm mx-auto">
+                </div>
+                <div>
+                    <h2 id="about-heading" class="section-header text-3xl md:text-4xl lg:text-5xl mb-6">About Niraj</h2>
+                    <p class="text-text-mid mb-4">I’m Niraj Kumar, a passionate <strong>BS Data Science and Applications student at IIT Madras</strong>, currently in my 3rd year. With a strong academic foundation and hands-on project work, I’m actively exploring how <strong>AI, data, and web technologies</strong> can come together to solve real-world problems.</p>
+                    <p class="text-text-mid mb-4">I’ve worked on projects like a <strong>RAG-based chatbot using LLM</strong> and web apps using <strong>Flask, VueJS, and Redis</strong>. These experiences deepened my interest in building smart, user-friendly tech solutions.</p>
+                    <p class="text-text-mid mb-6">As a <strong>Regional Coordinator (RC)</strong>, I’ve led multiple student offline meetups with various events. I also mentored peers in building initiatives like the <strong>Cybersecurity and AI Club</strong>, <strong>GATE Prep Club</strong>, and <strong>Web Developer Club</strong> for the Techies, promoting collaborative learning and leadership.</p>
+                    <p class="text-text-mid mb-6">Outside academics, I enjoy <strong>writing poems</strong>, playing <strong>badminton</strong>, and sparking tech discussions. I bring creativity, curiosity, and teamwork into every space I’m part of.</p>
+                    <div class="flex gap-4 flex-wrap">
+                        <a href="niraj_resume.pdf" download class="cta-btn text-base px-6 py-3"><i class="fas fa-file-download mr-2"></i>Download Resume</a>
+                        <a href="#contact" class="cta-btn bg-transparent border-2 border-accent-cyan text-accent-cyan hover:bg-accent-cyan hover:!text-bg-dark text-base px-6 py-3">Get In Touch</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-20 px-6 scroll-reveal bg-gradient-section" aria-labelledby="skills-heading">
+            <div class="max-w-6xl mx-auto">
+                <h2 id="skills-heading" class="section-header text-3xl md:text-4xl lg:text-5xl text-center mb-6">Technical Arsenal</h2>
+                <p class="text-center text-text-mid text-lg mb-12 max-w-3xl mx-auto">Proficient in a diverse range of technologies and frameworks</p>
+
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                    <!-- Python -->
+                    <div class="skill-card glass-card p-6 text-center">
+                        <div class="skill-icon-wrapper">
+                            <i class="fab fa-python text-5xl text-accent-cyan mb-4"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-text-light mb-2">Python</h3>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%"></div>
+                        </div>
+                    </div>
+
+                    <!-- JavaScript -->
+                    <div class="skill-card glass-card p-6 text-center">
+                        <div class="skill-icon-wrapper">
+                            <i class="fab fa-js text-5xl text-accent-violet mb-4"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-text-light mb-2">JavaScript</h3>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+
+                    <!-- SQL -->
+                    <div class="skill-card glass-card p-6 text-center">
+                        <div class="skill-icon-wrapper">
+                            <i class="fas fa-database text-5xl text-accent-fuchsia mb-4"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-text-light mb-2">SQL</h3>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%"></div>
+                        </div>
+                    </div>
+
+                    <!-- Flask -->
+                    <div class="skill-card glass-card p-6 text-center">
+                        <div class="skill-icon-wrapper">
+                            <i class="fas fa-flask text-5xl text-accent-emerald mb-4"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-text-light mb-2">Flask</h3>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+
+                    <!-- Vue.js -->
+                    <div class="skill-card glass-card p-6 text-center">
+                        <div class="skill-icon-wrapper">
+                            <i class="fab fa-vuejs text-5xl text-accent-cyan mb-4"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-text-light mb-2">Vue.js</h3>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%"></div>
+                        </div>
+                    </div>
+
+                    <!-- Git -->
+                    <div class="skill-card glass-card p-6 text-center">
+                        <div class="skill-icon-wrapper">
+                            <i class="fab fa-git-alt text-5xl text-accent-violet mb-4"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-text-light mb-2">Git</h3>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+
+                    <!-- Machine Learning -->
+                    <div class="skill-card glass-card p-6 text-center">
+                        <div class="skill-icon-wrapper">
+                            <i class="fas fa-robot text-5xl text-accent-fuchsia mb-4"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-text-light mb-2">ML/AI</h3>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 82%"></div>
+                        </div>
+                    </div>
+
+                    <!-- Docker -->
+                    <div class="skill-card glass-card p-6 text-center">
+                        <div class="skill-icon-wrapper">
+                            <i class="fab fa-docker text-5xl text-accent-emerald mb-4"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-text-light mb-2">Docker</h3>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 75%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-20 px-6 scroll-reveal" aria-labelledby="projects-heading">
+            <div class="max-w-6xl mx-auto">
+                <h2 id="projects-heading" class="section-header text-3xl md:text-4xl lg:text-5xl text-center mb-6">Featured Projects</h2>
+                <p class="text-center text-text-mid text-lg mb-12 max-w-3xl mx-auto">Real-world applications combining backend logic, AI capabilities, and full-stack development</p>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="project-card glass-card p-6">
+                        <div class="project-icon-wrapper mb-4">
+                            <i class="fas fa-brain text-4xl text-accent-cyan"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-accent-cyan mb-3">AI Agent for Academic Guidance</h3>
+                        <p class="text-text-mid mb-4">RAG-based chatbot using <strong>LangChain, FAISS, Groq API</strong> and deployed on Render. Built for educational portals to enhance learning support.</p>
+                        <div class="tech-tags flex flex-wrap gap-2 mb-4">
+                            <span class="tech-tag">FastAPI</span>
+                            <span class="tech-tag">LangChain</span>
+                            <span class="tech-tag">FAISS</span>
+                            <span class="tech-tag">Groq API</span>
+                        </div>
+                        <a href="#" class="project-link">View Project <i class="fas fa-arrow-right ml-2"></i></a>
+                    </div>
+
+                    <div class="project-card glass-card p-6">
+                        <div class="project-icon-wrapper mb-4">
+                            <i class="fas fa-home text-4xl text-accent-violet"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-accent-violet mb-3">Household Services Application</h3>
+                        <p class="text-text-mid mb-4">Multi-role booking platform using <strong>Flask, VueJS, SQLite, Redis</strong> with REST APIs and Celery for async task management.</p>
+                        <div class="tech-tags flex flex-wrap gap-2 mb-4">
+                            <span class="tech-tag">Flask</span>
+                            <span class="tech-tag">Vue3</span>
+                            <span class="tech-tag">Redis</span>
+                            <span class="tech-tag">Celery</span>
+                        </div>
+                        <a href="#" class="project-link">View Project <i class="fas fa-arrow-right ml-2"></i></a>
+                    </div>
+
+                    <div class="project-card glass-card p-6">
+                        <div class="project-icon-wrapper mb-4">
+                            <i class="fas fa-shield-alt text-4xl text-accent-fuchsia"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-accent-fuchsia mb-3">Smart Home Security System</h3>
+                        <p class="text-text-mid mb-4">Facial recognition-based security with <strong>Python, OpenCV, face-recognition</strong>. Handled real-time image encoding and database management.</p>
+                        <div class="tech-tags flex flex-wrap gap-2 mb-4">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">OpenCV</span>
+                            <span class="tech-tag">Face Recognition</span>
+                        </div>
+                        <a href="#" class="project-link">View Project <i class="fas fa-arrow-right ml-2"></i></a>
+                    </div>
+
+                    <div class="project-card glass-card p-6">
+                        <div class="project-icon-wrapper mb-4">
+                            <i class="fas fa-music text-4xl text-accent-emerald"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-accent-emerald mb-3">Music Streaming App</h3>
+                        <p class="text-text-mid mb-4">Flask app with <strong>HTML, CSS, SQL</strong> that supports login-based playlist and song management for users/admins.</p>
+                        <div class="tech-tags flex flex-wrap gap-2 mb-4">
+                            <span class="tech-tag">Flask</span>
+                            <span class="tech-tag">SQL</span>
+                            <span class="tech-tag">JINJA</span>
+                        </div>
+                        <a href="#" class="project-link">View Project <i class="fas fa-arrow-right ml-2"></i></a>
+                    </div>
+
+                    <div class="project-card glass-card p-6">
+                        <div class="project-icon-wrapper mb-4">
+                            <i class="fas fa-chart-line text-4xl text-accent-cyan"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-accent-cyan mb-3">Sentiment Analysis System</h3>
+                        <p class="text-text-mid mb-4">Movies review sentiment analysis with <strong>EDA, ML Models</strong>. Conducted data cleaning, preprocessing, and model evaluation on Kaggle platform.</p>
+                        <div class="tech-tags flex flex-wrap gap-2 mb-4">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Scikit-learn</span>
+                            <span class="tech-tag">Pandas</span>
+                        </div>
+                        <a href="#" class="project-link">View Project <i class="fas fa-arrow-right ml-2"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+       <section id="focus" class="py-20 px-6 scroll-reveal" aria-labelledby="focus-heading">
+  <div class="max-w-6xl mx-auto">
+    <h2 id="focus-heading" class="section-header text-3xl md:text-4xl lg:text-5xl text-center mb-16">What I Do</h2>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      
+      <div class="glass-card p-6 md:p-8">
+        <h3 class="text-xl font-bold text-accent-cyan mb-4 flex items-center">
+          <i class="fas fa-brain mr-3 text-2xl" aria-hidden="true"></i> AI & Data Projects
+        </h3>
+        <ul class="text-text-mid space-y-2">
+          <li>Build RAG systems with LLMs and LangChain</li>
+          <li>Work with embeddings, FAISS, and Groq API</li>
+          <li>Deploy real-world AI use cases</li>
+        </ul>
+      </div>
+
+      <div class="glass-card p-6 md:p-8">
+        <h3 class="text-xl font-bold text-accent-violet mb-4 flex items-center">
+          <i class="fas fa-code mr-3 text-2xl" aria-hidden="true"></i> Full-Stack Development
+        </h3>
+        <ul class="text-text-mid space-y-2">
+          <li>Flask/FastAPI backend + Vue frontend</li>
+          <li>SQLite, Redis, Celery for scaling apps</li>
+          <li>REST APIs and component design</li>
+        </ul>
+      </div>
+
+      <div class="glass-card p-6 md:p-8">
+        <h3 class="text-xl font-bold text-accent-fuchsia mb-4 flex items-center">
+          <i class="fas fa-users mr-3 text-2xl" aria-hidden="true"></i> Community Leadership
+        </h3>
+        <ul class="text-text-mid space-y-2">
+          <li>RC Patna Region for IITM BS</li>
+          <li>Led city-wide meetups & team initiatives</li>
+          <li>Mentor for clubs creation in AI, GATE, Web Dev</li>
+        </ul>
+      </div>
+
+      <div class="glass-card p-6 md:p-8">
+        <h3 class="text-xl font-bold text-accent-emerald mb-4 flex items-center">
+          <i class="fas fa-chalkboard-teacher mr-3 text-2xl" aria-hidden="true"></i> Teaching & Mentoring
+        </h3>
+        <ul class="text-text-mid space-y-2">
+          <li>Peer support for Python and ML</li>
+          <li>Help juniors with resources & doubts</li>
+          <li>Lead coding circles & study groups</li>
+        </ul>
+      </div>
+
+      <div class="glass-card p-6 md:p-8">
+        <h3 class="text-xl font-bold text-accent-cyan mb-4 flex items-center">
+          <i class="fas fa-lightbulb mr-3 text-2xl" aria-hidden="true"></i> Creative Side
+        </h3>
+        <ul class="text-text-mid space-y-2">
+          <li>Write poetry and short prose</li>
+          <li>Design digital posters & campaign graphics</li>
+          <li>Blend art with tech in storytelling</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="experience" class="py-20 px-6 scroll-reveal text-center" aria-labelledby="experience-heading">
+    <h2 id="experience-heading" class="section-header text-3xl md:text-4xl lg:text-5xl mb-6">Experience</h2>
+    <p class="text-text-mid text-lg mb-12 max-w-2xl mx-auto">I apply my learning through real-world internships and voluntary leadership.</p>
+
+    <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div class="glass-card p-6 text-left">
+            <h3 class="text-xl font-bold text-accent-cyan">Python Developer Intern – qapp.ai</h3>
+            <p class="text-text-mid">May 2024 – July 2024</p>
+            <ul class="list-disc text-left text-text-mid mt-2 ml-4 space-y-1">
+                <li>Built backend logic for a RAG-based AI system</li>
+                <li>Created interactive Streamlit-based UI</li>
+            </ul>
+        </div>
+        <div class="glass-card p-6 text-left">
+            <h3 class="text-xl font-bold text-accent-violet">Volunteer – PIWOT'23 & Paradox'23</h3>
+            <p class="text-text-mid">2023</p>
+            <ul class="list-disc text-left text-text-mid mt-2 ml-4 space-y-1">
+                <li>Managed outreach & handled registration desk for 3,000+ participants</li>
+                <li>Coordinated student queries and logistics at the help desk</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+        <!-- Timeline Section -->
+        <section id="roadmap" class="py-20 px-6 scroll-reveal" aria-labelledby="roadmap-heading">
+            <div class="max-w-4xl mx-auto">
+                <h2 id="roadmap-heading" class="section-header text-3xl md:text-4xl lg:text-5xl text-center mb-16">Educational Timeline</h2>
+                <div class="relative">
+                    <div class="timeline-line absolute left-4 md:left-1/2 top-0 h-full w-0.5 -ml-px" aria-hidden="true"></div>
+                    
+                    <div class="timeline-item mb-12 scroll-reveal">
+                        <div class="md:flex items-center">
+                            <div class="md:w-1/2 md:pr-8 mb-4 md:mb-0">
+                                <div class="p-6 glass-card">
+                                   
+                                    <h3 class="text-lg md:text-xl font-bold font-[Poppins] text-accent-cyan mb-2">Indian Institute of Technology, Madras</h3>
+                                    <p class="text-text-mid leading-relaxed">Degree level - Bachelors in Data Science and Applications</p>
+                                
+                                    <p class="text-text-mid leading-relaxed mt-4">
+                                        <span class="text-xs font-bold px-3 py-1 rounded-full bg-accent-cyan text-bg-dark">2021-2026 -> Chennai, Tamil Nadu</span>
+                                </div>
+                            </div>
+                            <div class="timeline-dot w-6 h-6 md:w-8 md:h-8 rounded-full border-4 absolute left-4 -ml-3 md:left-1/2 md:-ml-4" aria-hidden="true"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item mb-12 scroll-reveal">
+                        <div class="md:flex items-center flex-row-reverse">
+                            <div class="md:w-1/2 md:pl-8 mb-4 md:mb-0">
+                               <div class="p-6 glass-card">
+                                   
+                                    <h3 class="text-lg md:text-xl font-bold font-[Poppins] text-accent-cyan mb-2">St. Xavier's College, Ranchi</h3>
+                                    <p class="text-text-mid leading-relaxed">Bachelors in Physics Honours</p>
+
+                                    <p class="text-text-mid leading-relaxed mt-4">
+                                        <span class="text-xs font-bold px-3 py-1 rounded-full bg-accent-cyan text-bg-dark">2020-2023 -> Ranchi, Jharkhand</span>
+                                </div>
+                            </div>
+                            <div class="timeline-dot w-6 h-6 md:w-8 md:h-8 rounded-full border-4 absolute left-4 -ml-3 md:left-1/2 md:-ml-4" aria-hidden="true"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item mb-12 scroll-reveal">
+                        <div class="md:flex items-center">
+                            <div class="md:w-1/2 md:pr-8 mb-4 md:mb-0">
+                               <div class="p-6 glass-card">
+                                   
+                                    <h3 class="text-lg md:text-xl font-bold font-[Poppins] text-accent-cyan mb-2">D.A.V. Public School, KoylaNagar</h3>
+                                    <p class="text-text-mid leading-relaxed">Science, Non-Biology</p>
+                                
+                                    <p class="text-text-mid leading-relaxed mt-4">
+                                        <span class="text-xs font-bold px-3 py-1 rounded-full bg-accent-cyan text-bg-dark">2017-2019 -> Dhanbad, Jharkhand</span>
+                                </div>
+                            </div>
+                            <div class="timeline-dot w-6 h-6 md:w-8 md:h-8 rounded-full border-4 absolute left-4 -ml-3 md:left-1/2 md:-ml-4" aria-hidden="true"></div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item scroll-reveal">
+                        <div class="md:flex items-center flex-row-reverse">
+                            <div class="md:w-1/2 md:pl-8 mb-4 md:mb-0">
+                                <div class="p-6 glass-card">
+                                    
+                                   
+                                    <h3 class="text-lg md:text-xl font-bold font-[Poppins] text-accent-cyan mb-2">D.A.V. Public School, Barora</h3>
+                                    <p class="text-text-mid leading-relaxed"></p>
+                                
+                                    <p class="text-text-mid leading-relaxed mt-4">
+                                        <span class="text-xs font-bold px-3 py-1 rounded-full bg-accent-cyan text-bg-dark">2007-2017 -> Dhanbad, Jharkhand</span>
+                                
+                            </div>
+                            <div class="timeline-dot w-6 h-6 md:w-8 md:h-8 rounded-full border-4 absolute left-4 -ml-3 md:left-1/2 md:-ml-4" aria-hidden="true"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Core Values Section -->
+        <section id="core-values" class="py-20 px-6 scroll-reveal bg-gradient-section" aria-labelledby="core-values-heading">
+            <div class="max-w-5xl mx-auto">
+                <h2 id="core-values-heading" class="section-header text-3xl md:text-4xl lg:text-5xl text-center mb-6">Core Values</h2>
+                <p class="text-center text-text-mid text-lg mb-12 max-w-3xl mx-auto">Principles that drive excellence</p>
+                <div class="grid md:grid-cols-3 gap-8 text-center">
+                    <div class="glass-card p-8 flex flex-col items-center value-card">
+                        <div class="value-icon-circle w-20 h-20 mb-6 rounded-full border-2 border-accent-cyan flex items-center justify-center mission-icon">
+                            <i class="fas fa-fist-raised text-3xl text-accent-cyan" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="text-2xl md:text-3xl font-bold font-[Poppins] text-accent-cyan mb-3">Determined</h3>
+                        <p class="text-text-mid">Relentless pursuit of goals with unwavering focus</p>
+                    </div>
+                    <div class="glass-card p-8 flex flex-col items-center value-card">
+                        <div class="value-icon-circle w-20 h-20 mb-6 rounded-full border-2 border-accent-violet flex items-center justify-center mission-icon">
+                            <i class="fas fa-flag-checkered text-3xl text-accent-violet" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="text-2xl md:text-3xl font-bold font-[Poppins] text-accent-violet mb-3">Punctual</h3>
+                        <p class="text-text-mid">Respecting time and delivering commitments precisely</p>
+                    </div>
+                    <div class="glass-card p-8 flex flex-col items-center value-card">
+                        <div class="value-icon-circle w-20 h-20 mb-6 rounded-full border-2 border-accent-fuchsia flex items-center justify-center mission-icon">
+                            <i class="fas fa-fire text-3xl text-accent-fuchsia" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="text-2xl md:text-3xl font-bold font-[Poppins] text-accent-fuchsia mb-3">Consistent</h3>
+                        <p class="text-text-mid">Maintaining excellence through dedicated practice</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Achievements & Extra-curricular Section -->
+        <section id="achievements" class="py-20 px-6 scroll-reveal" aria-labelledby="achievements-heading">
+            <div class="max-w-5xl mx-auto">
+                <h2 id="achievements-heading" class="section-header text-3xl md:text-4xl lg:text-5xl text-center mb-6">Beyond Code</h2>
+                <p class="text-center text-text-mid text-lg mb-12 max-w-3xl mx-auto">Balancing technology with passions and community engagement</p>
+                
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="glass-card p-6 achievement-card">
+                        <div class="achievement-icon mb-4">
+                            <i class="fas fa-running text-4xl text-accent-cyan"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-text-light mb-2">Marathon Runner</h3>
+                        <p class="text-text-mid">Participated in CCL Ranchi Marathon across multiple distances: 5km, 10km, and 21km</p>
+                    </div>
+
+                    <div class="glass-card p-6 achievement-card">
+                        <div class="achievement-icon mb-4">
+                            <i class="fas fa-feather-alt text-4xl text-accent-violet"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-text-light mb-2">Poetry</h3>
+                        <p class="text-text-mid">Express creativity through verse, blending art with analytical thinking</p>
+                    </div>
+
+                    <div class="glass-card p-6 achievement-card">
+                        <div class="achievement-icon mb-4">
+                            <i class="fas fa-table-tennis text-4xl text-accent-fuchsia"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-text-light mb-2">Badminton Player</h3>
+                        <p class="text-text-mid">Regular player, developing strategy, agility, and competitive spirit</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+    <footer id="contact" class="text-center py-12 border-t border-border-color text-text-dark bg-bg-mid/50 scroll-reveal" aria-labelledby="footer-heading">
+        <div class="max-w-4xl mx-auto px-6">
+            <h3 id="footer-heading" class="text-2xl font-bold text-text-light mb-4">Thank You! Let's Connect.</h3>
+            <p class="text-text-mid mb-6">Your feedback and ideas are crucial. Reach out anytime.</p>
+            <div class="flex justify-center items-center gap-6 text-3xl mb-8" aria-label="Social media links">
+                
+                <a href="https://www.linkedin.com/in/niraj-kumar123?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app
+" class="text-text-mid hover:text-accent-violet transition-colors duration-300" aria-label="Niraj on Linkedin"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:21f1006589@ds.study.iitm.ac.in" class="text-text-mid hover:text-accent-fuchsia transition-colors duration-300" aria-label="Email Niraj"><i class="fas fa-envelope"></i></a> 
+            </div>
+            <p class="text-sm">© <span id="current-year">2025</span> Niraj Kumar</p>
+            <script>document.getElementById('current-year').textContent = new Date().getFullYear();</script>
+            <p class="text-sm font-semibold mt-2 text-accent-cyan animated-hero-tagline">#Aspiring Data Scientist</p>
+            
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <a href="#hero" class="scroll-to-top" id="scroll-to-top-button" aria-label="Scroll to top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script src="script.js"></script>
+ 
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/video.js/8.6.1/video.min.js"></script>
+</body>
+</html>
