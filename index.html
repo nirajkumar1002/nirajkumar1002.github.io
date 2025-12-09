@@ -80,6 +80,34 @@
     }
     </script>
 
+    <!-- 2) Organization schema for IIT Madras (helps connect the institution) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CollegeOrUniversity",
+      "name": "Indian Institute of Technology Madras",
+      "url": "https://www.iitm.ac.in/",
+      "sameAs": [
+        "https://study.iitm.ac.in/ds/",
+        "https://en.wikipedia.org/wiki/Indian_Institute_of_Technology_Madras"
+      ]
+    }
+    </script>
+    
+    <!-- 3) WebSite schema (small, useful) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Niraj Kumar | Portfolio",
+      "url": "https://nirajkumar1002.github.io/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://nirajkumar1002.github.io/?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
